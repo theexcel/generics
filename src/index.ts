@@ -20,9 +20,7 @@ const items: Item[] = [
   },
 ];
 
-function letsTestThisOut<
-  T extends { id: number; firstName: string; lastName: string }
->(param: T[]) {
+function letsTestThisOut<T extends Item>(param: T[]) {
   return param.map((item) => ({
     id: item.id,
     fullName: `${item.firstName} ${item.lastName}`,
@@ -35,4 +33,4 @@ function identity<T>(param: T): T {
   return param;
 }
 
-console.log(identity(2));
+console.log(identity<Item[]>(items));
